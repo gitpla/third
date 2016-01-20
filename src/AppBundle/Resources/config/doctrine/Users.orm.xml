@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Users" table="users">
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="MAIL"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="stan" type="smallint" column="STAN" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="plec" type="smallint" column="PLEC" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="imie" type="string" column="IMIE" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nazwisko" type="string" column="NAZWISKO" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mail" type="string" column="MAIL" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dataTime" type="datetime" column="DATA_TIME" nullable="true"/>
+    <field name="dataTime2" type="datetime" column="DATA_TIME2" nullable="true"/>
+    <field name="dataUrodzenia" type="date" column="DATA_URODZENIA" nullable="true"/>
+    <field name="miejscowosc" type="string" column="MIEJSCOWOSC" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="password" type="string" column="PASSWORD" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="xid" type="string" column="XID" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dataAktyw" type="datetime" column="DATA_AKTYW" nullable="true"/>
+    <field name="password2" type="string" column="PASSWORD2" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="lang" type="string" column="LANG" length="6" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mailZachety" type="smallint" column="MAIL_ZACHETY" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="mailPonow" type="smallint" column="MAIL_PONOW" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="browswer" type="string" column="BROWSWER" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="kampania" type="string" column="KAMPANIA" length="9" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mailArt1" type="smallint" column="MAIL_ART1" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="mailPromo1" type="smallint" column="MAIL_PROMO_1" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="mailPromo2" type="smallint" column="MAIL_PROMO_2" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

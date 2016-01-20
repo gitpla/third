@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\ShopOrder" table="shop_order" repository-class="AppBundle\Repository\ShopOrder">
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="IDS_SESSION"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typ" type="string" column="TYP" length="8" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="idUser" type="integer" column="ID_USER" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="statusManual" type="string" column="STATUS_MANUAL" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="email" type="string" column="EMAIL" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="price" type="integer" column="PRICE" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="p24Metoda" type="string" column="P24_METODA" length="10" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="paymentType" type="string" column="PAYMENT_TYPE" length="3" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="partnumber" type="string" column="PARTNUMBER" length="16" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dataTime" type="datetime" column="DATA_TIME" nullable="true"/>
+    <field name="p24OrderId" type="string" column="P24_ORDER_ID" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="statusBackP24" type="string" column="STATUS_BACK_P24" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">null - nie wrocilo, 1 - OK, ERR:kod nledu</option>
+      </options>
+    </field>
+    <field name="statusBackP24Time" type="datetime" column="STATUS_BACK_P24_TIME" nullable="true"/>
+    <field name="statusVeryfP24" type="string" column="STATUS_VERYF_P24" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">1- OK, lub kod bledu</option>
+      </options>
+    </field>
+    <field name="statusVeryfP24Time" type="datetime" column="STATUS_VERYF_P24_TIME" nullable="true"/>
+    <field name="nazwa1" type="string" column="NAZWA1" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="adres1" type="string" column="ADRES1" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="miejscowosc1" type="string" column="MIEJSCOWOSC1" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="kod1" type="string" column="KOD1" length="6" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="fvat" type="string" column="FVAT" length="1" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="nip" type="string" column="NIP" length="19" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nazwa2" type="string" column="NAZWA2" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="adres2" type="string" column="ADRES2" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="kod2" type="string" column="KOD2" length="6" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="miejscowosc2" type="string" column="MIEJSCOWOSC2" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="uwagi" type="string" column="UWAGI" length="512" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="title" type="string" column="TITLE" length="128" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="p24Clientid" type="string" column="P24_CLIENTID" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ppReceiverId" type="string" column="PP_RECEIVER_ID" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ppPaymentStatus" type="string" column="PP_PAYMENT_STATUS" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ppPaymentDate" type="string" column="PP_PAYMENT_DATE" length="48" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ppTxnId" type="string" column="PP_TXN_ID" length="48" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ppPayerEmail" type="string" column="PP_PAYER_EMAIL" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="idsSession" type="string" column="IDS_SESSION" length="64" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ip" type="string" column="IP" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="brow" type="string" column="BROW" length="512" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,7 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+contact:
+     path:     /contact/{ids}
+     defaults: { _controller: AppBundle:Contact:contact }

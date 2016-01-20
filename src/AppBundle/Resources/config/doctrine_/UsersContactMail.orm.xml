@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\UsersContactMail" table="users_contact_mail" repository-class="AppBundle\Repository\UsersContactMail">
+    <indexes>
+      <index name="IDX_2A9D08BBF8371B55" columns="ID_USER"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="ID_USER,MAIL"/>
+      <unique-constraint name="NewIndex2" columns="ID_USER,MAILBOX"/>
+      <unique-constraint name="NewIndex3" columns="ID_USER,GG"/>
+      <unique-constraint name="NewIndex4" columns="ID_USER,SKYPE"/>
+      <unique-constraint name="NewIndex5" columns="ID_USER,LOGIN"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="gg" type="string" column="GG" length="45" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="skype" type="string" column="SKYPE" length="60" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mailbox" type="string" column="MAILBOX" length="384" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mail" type="string" column="MAIL" length="384" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="login" type="string" column="LOGIN" length="120" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="passw" type="string" column="PASSW" length="120" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="host" type="string" column="HOST" length="60" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mailTitle" type="string" column="MAIL_TITLE" length="384" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mailType" type="boolean" column="MAIL_TYPE" nullable="true"/>
+    <field name="sendStatus" type="boolean" column="SEND_STATUS" nullable="true"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <many-to-one field="idUser" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_USER" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

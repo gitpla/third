@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\ConnectFacebook" table="connect_facebook">
+    <indexes>
+      <index name="IDX_7C0FAFF4F8371B55" columns="ID_USER"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="ID_USER,ID_USER_FACEBOOK"/>
+      <unique-constraint name="NewIndex2" columns="ID_USER_FACEBOOK"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idUserFacebook" type="string" column="ID_USER_FACEBOOK" length="72" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="isconnect" type="smallint" column="ISCONNECT" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dataTime" type="datetime" column="DATA_TIME" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <field name="offlineAccess" type="smallint" column="OFFLINE_ACCESS" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="publicOut" type="smallint" column="PUBLIC_OUT" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <many-to-one field="idUser" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_USER" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

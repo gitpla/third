@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Lerning" table="lerning">
+    <indexes>
+      <index name="FK_lerning2" columns="ID_DICTIONARY"/>
+      <index name="IDX_BE0616E4F8371B55" columns="ID_USER"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="ID_USER,ID_LECTION,ID_DICTIONARY"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idLection" type="boolean" column="ID_LECTION" nullable="false"/>
+    <field name="idDictionary" type="integer" column="ID_DICTIONARY" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="wordStatus" type="boolean" column="WORD_STATUS" nullable="true"/>
+    <field name="repeadCount" type="boolean" column="REPEAD_COUNT" nullable="true"/>
+    <field name="exam" type="boolean" column="EXAM" nullable="true"/>
+    <field name="examBufor" type="boolean" column="EXAM_BUFOR" nullable="true"/>
+    <field name="answerOk" type="integer" column="ANSWER_OK" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="answerErr" type="integer" column="ANSWER_ERR" nullable="true">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <many-to-one field="idUser" target-entity="AppBundle\Entity\Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_USER" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

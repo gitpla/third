@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\CronFcbWall" table="cron_fcb_wall" repository-class="AppBundle\Repository\CronFcbWall">
+    <unique-constraints>
+      <unique-constraint name="FK_cron_fcb_wall" columns="ID_USER"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="sendqueue" type="boolean" column="SENDQUEUE" nullable="true"/>
+    <field name="dataTime" type="datetime" column="DATA_TIME" nullable="true"/>
+    <field name="dataTimeSend" type="datetime" column="DATA_TIME_SEND" nullable="true"/>
+    <many-to-one field="idUser" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_USER" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

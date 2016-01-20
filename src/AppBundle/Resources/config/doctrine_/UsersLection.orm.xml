@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\UsersLection" table="users_lection" repository-class="AppBundle\Repository\UsersLection">
+    <indexes>
+      <index name="IDX_4CE5E202F8371B55" columns="ID_USER"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="NewIndex1" columns="ID_USER,ID_LECTION"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="ID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idLection" type="integer" column="ID_LECTION" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="periodTime" type="datetime" column="PERIOD_TIME" nullable="true"/>
+    <field name="lastDate" type="datetime" column="LAST_DATE" nullable="false">
+      <options>
+        <option name="default">0000-00-00 00:00:00</option>
+      </options>
+    </field>
+    <field name="mailActivator" type="boolean" column="MAIL_ACTIVATOR" nullable="true"/>
+    <field name="codeActivator" type="boolean" column="CODE_ACTIVATOR" nullable="true"/>
+    <many-to-one field="idUser" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ID_USER" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
